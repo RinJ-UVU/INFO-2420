@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript Practice 1 - Calculations</title>
+
+<script>
+var secs_per_min = 60;
+var mins_per_hour = 60;
+var hours_per_day = 24;
+var days_per_year = 365;
+
+// 計算
+var secs_per_day = secs_per_min * mins_per_hour * hours_per_day;
+var secs_per_year = secs_per_day * days_per_year;
+
+// 出力
+document.writeln("<b>The monkey dances " + secs_per_year + " seconds per year.</b>");
+
+// ===== Madlib =====
+var name = prompt("Enter a name:");
+var verb = prompt("Enter a past-tense verb:");
+var adjective = prompt("Enter a descriptive adjective:");
+
+var Madlib = name + " " + verb + " into the library, with the " + adjective + " candlestick.";
+document.writeln("<br><b>" + Madlib + "</b>");
+</script>
+
+</head>
+<body>
+</body>
+</html>
