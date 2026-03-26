@@ -28,6 +28,7 @@ body {
     margin: 5px;
     width: 150px;
     height: auto;
+    cursor: pointer;
 }
 
 #image {
@@ -42,14 +43,16 @@ body {
 
 <script>
 
-let logo1 = new Image();
-let logo2 = new Image();
+logo1 = new Image();
+logo2 = new Image();
 
-logo1.src = "images/logo1.jpg";
-logo2.src = "images/logo2.jpg";
+if (document.images) {
+    logo1.src = "images/logo1.jpg";
+    logo2.src = "images/logo2.jpg";
+}
 
 var imgArray = [
-    'CoupleBike1Lg.jpg',
+    'CoupleBikeLg.jpg',
     'CoupleEveningLg.jpg',
     'CoupleHikingLg.jpg',
     'SkiCouple1Lg.jpg'
@@ -65,8 +68,11 @@ var titleArray = [
 var imgPath = "images/";
 
 function swapImage(imgID) {
-    document.getElementById('theImage').src = imgPath + imgArray[imgID];
-    document.getElementById('bottomText').innerHTML = titleArray[imgID];
+    var theImage = document.getElementById('theImage');
+    var textDiv = document.getElementById('bottomText');
+
+    theImage.src = imgPath + imgArray[imgID];
+    textDiv.innerHTML = titleArray[imgID];
 }
 
 </script>
@@ -74,28 +80,26 @@ function swapImage(imgID) {
 </head>
 <body>
 
-
 <div id="logo" class="center">
-    <a href="logo.html"
-       onmouseover="document.getElementById('logoImg').src=logo2.src;"
-       onmouseout="document.getElementById('logoImg').src=logo1.src;">
+    <a href="logo.html" onMouseOver="document.logo.src=logo2.src;"
+       onMouseOut="document.logo.src=logo1.src;">
         <br>
-        <img id="logoImg" src="images/logo1.jpg" width="150" height="150"
-             alt="logo" style="border:none;">
+        <img src="images/logo1.jpg" width="150" height="150"
+             name="logo" alt="logo" style="border:none;">
     </a>
 </div>
 
 <br><br><br>
 
 <div id="thumbs">
-    <img src="images/CoupleBike1Lg.jpg" alt="Couple Biking" onmouseover="swapImage(0);">
+    <img src="images/CoupleBikeLg.jpg" alt="Couple Biking" onmouseover="swapImage(0);">
     <img src="images/CoupleEveningLg.jpg" alt="Evening Couple" onmouseover="swapImage(1);">
     <img src="images/CoupleHikingLg.jpg" alt="Hiking Couple" onmouseover="swapImage(2);">
     <img src="images/SkiCouple1Lg.jpg" alt="Skiing Couple" onmouseover="swapImage(3);">
 </div>
 
 <div id="image">
-    <img id="theImage" src="images/CoupleBike1Lg.jpg" alt="Couple Biking" width="600">
+    <img id="theImage" src="images/CoupleBikeLg.jpg" alt="Couple Biking" width="600">
     <h3 id="bottomText">Couple Biking</h3>
 </div>
 
